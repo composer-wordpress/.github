@@ -30,7 +30,7 @@ unset($result);
 
 // Get validated release array
 $releaseType = getenv('RELEASE_TYPE') ?: 'full';
-$releaseTypeQuery = $releaseType === 'full' ? '' : '-'.$releaseType:
+$releaseTypeQuery = $releaseType === 'full' ? '' : '-'.$releaseType;
 $releases = array_filter($releases, function ($tag) {
     return version_compare($tag, '4.0', '>=');
 }, ARRAY_FILTER_USE_KEY);
