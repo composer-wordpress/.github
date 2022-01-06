@@ -29,11 +29,13 @@ $releases = json_decode($result, true);
 unset($result);
 
 // Get validated release array
+$releaseType = getenv('RELEASE_TYPE') ?: 'full';
+$releaseTypeQuery = $releaseType === 'full' ? '' : '-'.$releaseType:
 $releases = array_filter($releases, function ($tag) {
     return version_compare($tag, '4.0', '>=');
 }, ARRAY_FILTER_USE_KEY);
-array_walk($releases, function (&$tag, $version) {
-    $tag = "https://downloads.wordpress.org/release/wordpress-{$version}-no-content.zip";
+array_walk($releases, function (&$tag, $version) use ($releaseType) {
+    $tag = "https://downloads.wordpress.org/release/wordpress-{$version}{$releaseTypeQuery}.zip";
 });
 
 
@@ -75,6 +77,8 @@ if (!run("git config user.email $githubUser")) {
     throw new RuntimeException("could not set git info for $tempfile");
 }
 
+$packageBuilder = new WordPressPackage($releaseType);
+
 // Building releases
 foreach ($releases as $version => $url) {
     try {
@@ -114,7 +118,9 @@ foreach ($releases as $version => $url) {
         throw new RuntimeException("failed to git create branch $safeVersion");
     }
 
-    $built = buildBranch($version, $url, $tempfile);
+    $built = $packageBuilder
+        ->for($version, $url)
+        ->build($tempfile);
     if (!$built) {
         throw new RuntimeException("failed to build out $version");
     }

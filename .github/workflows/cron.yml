@@ -1,6 +1,7 @@
 name: Cron
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 */12 * * *'
 
@@ -8,6 +9,12 @@ jobs:
   test:
     name: PHP ${{ matrix.php_version }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        release-type:
+          - full
+          - new-bundled
+          - no-content
 
     steps:
     - uses: actions/checkout@v2
@@ -24,6 +31,7 @@ jobs:
     - name: Update
       run: php ./bin/build.php
       env:
+        RELEASE_TYPE: ${{ matrix.release-type }}
         TOKEN: ${{ secrets.TOKEN }}
         ACTOR: ${{ secrets.ACTOR }}
         REPO_SLUG: ${{ secrets.REPO_SLUG }}
