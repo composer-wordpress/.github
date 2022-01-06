@@ -50,7 +50,7 @@ $githubToken = getenv('TOKEN');
 if (!preg_match('/^[a-z0-9]+$/i', $githubToken)) {
     throw new RuntimeException("refusing to proceed with possibly invalid GITHUB TOKEN");
 }
-$githubRepo = getenv('REPO_SLUG');
+$githubOrg = getenv('REPO_SLUG');
 $remote = "https://$githubToken@github.com/{$githubOrg}{$releaseType}.git";
 
 $tempfile = tempnam(sys_get_temp_dir(), 'wordpress-');
