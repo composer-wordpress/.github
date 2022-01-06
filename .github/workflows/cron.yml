@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: PHP ${{ matrix.release-type }}
+    name: ${{ matrix.release-type }}
     runs-on: ubuntu-latest
     strategy:
       matrix:

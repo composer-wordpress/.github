@@ -34,7 +34,7 @@ $releaseTypeQuery = $releaseType === 'full' ? '' : '-'.$releaseType;
 $releases = array_filter($releases, function ($tag) {
     return version_compare($tag, '4.0', '>=');
 }, ARRAY_FILTER_USE_KEY);
-array_walk($releases, function (&$tag, $version) use ($releaseType) {
+array_walk($releases, function (&$tag, $version) use ($releaseTypeQuery) {
     $tag = "https://downloads.wordpress.org/release/wordpress-{$version}{$releaseTypeQuery}.zip";
 });
 
@@ -51,7 +51,7 @@ if (!preg_match('/^[a-z0-9]+$/i', $githubToken)) {
     throw new RuntimeException("refusing to proceed with possibly invalid GITHUB TOKEN");
 }
 $githubRepo = getenv('REPO_SLUG');
-$remote = "https://$githubToken@github.com/$githubRepo.git";
+$remote = "https://$githubToken@github.com/{$githubOrg}{$releaseType}.git";
 
 $tempfile = tempnam(sys_get_temp_dir(), 'wordpress-');
 if (file_exists($tempfile)) {
