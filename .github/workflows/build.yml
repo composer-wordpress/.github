@@ -42,7 +42,7 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Build
-        run: composer run build -- $REMOTE $PACKAGE --type=$TYPE
+        run: composer run build -- $REMOTE $PACKAGE --type=$TYPE --instable
         env:
           REMOTE: ${{ secrets.REMOTE }}
           PACKAGE: ${{ secrets.PACKAGE }}
