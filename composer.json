@@ -1,7 +1,7 @@
 {
     "minimum-stability": "dev",
     "require": {
-        "composer-wordpress/wordpress-packager": "dev-main"
+        "composer-wordpress/wordpress-packager": "^1.0"
     },
     "scripts": {
         "build": "wordpress-packager"
