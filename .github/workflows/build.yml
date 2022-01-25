@@ -36,6 +36,13 @@ jobs:
 
       - run: composer install --prefer-dist --no-dev
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "$EMAIL"
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+
       - name: Build
         run: composer run build -- $REMOTE $PACKAGE --type=$TYPE --instable
         env:
