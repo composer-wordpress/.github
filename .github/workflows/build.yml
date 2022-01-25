@@ -48,6 +48,6 @@ jobs:
       - name: Build
         run: composer run build -- $REMOTE $PACKAGE --type=$TYPE --instable
         env:
-          REMOTE: ${{ secrets.REMOTE }}
-          PACKAGE: ${{ secrets.PACKAGE }}
-          TYPE: ${{ matrix.type }}
+          REMOTE: https://github.com/${{ github.repository_owner }}/${{ matrix.release-type }}.git
+          PACKAGE: ${{ github.repository_owner }}/${{ matrix.release-type }}
+          TYPE: ${{ matrix.release-type }}
