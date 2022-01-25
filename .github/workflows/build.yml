@@ -36,18 +36,9 @@ jobs:
 
       - run: composer install --prefer-dist --no-dev
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "$GITHUB_ACTOR"
-          git config --global user.email "$EMAIL"
-          git config --global user.password "$TOKEN"
-        env:
-          EMAIL: ${{ secrets.EMAIL }}
-          TOKEN: ${{ secrets.TOKEN }}
-
       - name: Build
         run: composer run build -- $REMOTE $PACKAGE --type=$TYPE --instable
         env:
-          REMOTE: https://github.com/${{ github.repository_owner }}/${{ matrix.release-type }}.git
+          REMOTE: https://${{ github.actor }}:${{ secrets.TOKEN }}@github.com/${{ github.repository_owner }}/${{ matrix.release-type }}.git
           PACKAGE: ${{ github.repository_owner }}/${{ matrix.release-type }}
           TYPE: ${{ matrix.release-type }}
