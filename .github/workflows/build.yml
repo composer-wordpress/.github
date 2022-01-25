@@ -40,10 +40,10 @@ jobs:
         run: |
           git config --global user.name "$GITHUB_ACTOR"
           git config --global user.email "$EMAIL"
-          git config --global user.password "$PAT"
+          git config --global user.password "$TOKEN"
         env:
           EMAIL: ${{ secrets.EMAIL }}
-          PAT: ${{ secrets.PAT }}
+          TOKEN: ${{ secrets.TOKEN }}
 
       - name: Build
         run: composer run build -- $REMOTE $PACKAGE --type=$TYPE --instable
