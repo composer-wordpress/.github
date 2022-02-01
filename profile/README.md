@@ -11,6 +11,9 @@ composer require composer-wordpress/<release-type>
 
 ## Release Types
 
+Different release types are available with WordPress core.
+The list of themes and plugins bundled differs between release types.
+
 Name|Official|Packagist|Repository|Themes|Plugins
 --|:--:|:--:|:--:|--|--
 Full|✅|[`full`](https://packagist.org/packages/composer-wordpress/full)|[`full`](https://github.com/composer-wordpress/full)|[3 latest official](https://wordpress.org/themes/author/wordpressdotorg/)|[Akismet](https://wordpress.org/plugins/akismet/), [Hello Dolly](https://wordpress.org/plugins/hello-dolly/)
