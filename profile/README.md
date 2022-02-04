@@ -14,11 +14,11 @@ composer require composer-wordpress/<release-type>
 Different release types are available with WordPress core.
 The list of themes and plugins bundled differs between release types.
 
-Name|Official|Packagist|Repository|Themes|Plugins
---|:--:|:--:|:--:|--|--
-Full|✅|[`full`](https://packagist.org/packages/composer-wordpress/full)|[`full`](https://github.com/composer-wordpress/full)|[3 latest official](https://wordpress.org/themes/author/wordpressdotorg/)|[Akismet](https://wordpress.org/plugins/akismet/), [Hello Dolly](https://wordpress.org/plugins/hello-dolly/)
-New bundled|✅*|[`new-bundled`](https://packagist.org/packages/composer-wordpress/new-bundled)|[`new-bundled`](https://github.com/composer-wordpress/new-bundled)|[3 latest official](https://wordpress.org/themes/author/wordpressdotorg/)|none
-No content|✅*|[`no-content`](https://packagist.org/packages/composer-wordpress/no-content)|[`no-content`](https://github.com/composer-wordpress/no-content)|none|none
+Name|Official|Packagist|Repository|Themes|Plugins|Beta & RC
+--|:--:|:--:|:--:|--|--|:--:
+Full|✅|[`full`](https://packagist.org/packages/composer-wordpress/full)|[`full`](https://github.com/composer-wordpress/full)|[3 latest official](https://wordpress.org/themes/author/wordpressdotorg/)|[Akismet](https://wordpress.org/plugins/akismet/), [Hello Dolly](https://wordpress.org/plugins/hello-dolly/)|✔️
+New bundled|✅*|[`new-bundled`](https://packagist.org/packages/composer-wordpress/new-bundled)|[`new-bundled`](https://github.com/composer-wordpress/new-bundled)|[3 latest official](https://wordpress.org/themes/author/wordpressdotorg/)|none|❌
+No content|✅*|[`no-content`](https://packagist.org/packages/composer-wordpress/no-content)|[`no-content`](https://github.com/composer-wordpress/no-content)|none|none|❌
 
 <small>
   * These builds are made available by WordPress.org but are not extensively documented.
