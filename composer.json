@@ -1,9 +1,15 @@
 {
-    "minimum-stability": "dev",
     "require": {
         "composer-wordpress/wordpress-packager": "^1.0"
     },
     "scripts": {
         "build": "wordpress-packager"
-    }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
