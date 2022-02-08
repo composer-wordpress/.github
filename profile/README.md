@@ -21,7 +21,7 @@ New bundled|✅*|[`new-bundled`](https://packagist.org/packages/composer-wordpre
 No content|✅*|[`no-content`](https://packagist.org/packages/composer-wordpress/no-content)|[`no-content`](https://github.com/composer-wordpress/no-content)|none|none|❌
 
 <small>
-  * These builds are made available by WordPress.org but are not extensively documented.
+  * Although they are not extensively documented, these builds are made available by WordPress.org as regular builds.
 </small>
 
 ## Plugins
