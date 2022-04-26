@@ -1,6 +1,7 @@
 {
     "require": {
-        "roots/wordpress-packager": "^1.0"
+        "roots/wordpress-packager": "^1.0",
+        "czproject/git-php": "4.0.2"
     },
     "scripts": {
         "build": "wordpress-packager"
